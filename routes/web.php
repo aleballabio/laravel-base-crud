@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Route::get('/', 'HomeController@index')->name('home');  Esempio Henri
+Route::view('/', 'home')->name('home');
 
-Route::get('/', 'TrainsController@trains')->name('trains');
+
+Route::resource('/comics', 'ComicController');
