@@ -5,9 +5,20 @@ namespace App\Http\Controllers;
 use App\Comic;
 use Doctrine\DBAL\Schema\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ComicController extends Controller
 {
+    protected $validationRules = [
+        'title'             => 'required|unique:comics|min:5|max:150',
+        'description'             => 'nullable|string|max:1000',
+        'thumb'          => 'nullable|url|max:300',
+        'price'              => 'required|numeric|between:0, 999.99',
+        'series'           => 'required|string|max:300',
+        'sale_date'              => 'date|max:25',
+        'type'      => 'required|string|min:0|max:100',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -45,9 +56,13 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Comic $comic)
     {
         //
+
+        $request->validate($this->validationRules);
+
+
 
         $formData = $request->all();
         $formData['price'] = $formData['price'] * 100;
@@ -94,6 +109,14 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
         //
+        $this->validationRules['title'] = [
+            'title'             =>
+            'required',
+            Rule::unique('comics')->ignore($comic),
+            'min:5',
+            'max:150',
+        ];
+        $request->validate($this->validationRules);
         $formData = $request->all();
         $formData['price'] = $formData['price'] * 100;
         $comic->update($formData);

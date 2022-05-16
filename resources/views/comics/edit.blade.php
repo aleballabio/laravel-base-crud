@@ -23,7 +23,7 @@
                         <label for="title" class="form-label">Title:</label>
                         <input type="text" id="title" name="title" value="{{ $comic->title }}"">
 
-                                                <label for=" series" class="form-label">Series:</label>
+                                                    <label for=" series" class="form-label">Series:</label>
                         <input type="text" id="series" name="series" value="{{ $comic->series }}">
 
                         <label for="description" class="form-label">Description:</label>
@@ -33,7 +33,7 @@
                         <input type="text" id="thumb" name="thumb" value="{{ $comic->thumb }}">
 
                         <label for="price" class="form-label">Price:</label>
-                        <input type="number" id="price" step="any" min="0.01" name="price"
+                        <input type="number" id="price" step="0.01" min="0.00" name="price"
                             value="{{ $comic->price / 100 }}">
 
                         <label for="date" class="form-label">Available From:</label>
