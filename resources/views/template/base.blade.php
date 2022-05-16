@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    @yield('content');
+    @include('template.partials.header')
+    @yield('content')
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
 

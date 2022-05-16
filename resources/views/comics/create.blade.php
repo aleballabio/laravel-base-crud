@@ -31,5 +31,6 @@
             </select>
             <input type="submit">
         </form>
+        <a href="{{ URL::previous() }}" class="btn btn-warning"> <i class="fas fa-arrow-left"></i> Go Back</a>
     </div>
 @endsection

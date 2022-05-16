@@ -71,6 +71,10 @@
   text-align: center;
 }
 
+.form form #description {
+  height: 100px;
+}
+
 * {
   margin: 0;
   padding: 0;

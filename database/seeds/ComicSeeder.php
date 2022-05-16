@@ -125,6 +125,7 @@ class ComicSeeder extends Seeder
         foreach ($arrComics as $comicData) {
             $comic = new Comic;
             $comic->fill($comicData);
+            $comic['price'] = $comic['price'] * 100;
             $comic->save();
         };
     }

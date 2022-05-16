@@ -11,6 +11,11 @@
                     <h2> {{ $comic->title }}</h2>
                     <h3>{{ $comic->series }}</h3>
                 </a>
+                <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-primary">Edit</a>
+                <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger">Delete</button>
             </div>
         @endforeach
     </div>
