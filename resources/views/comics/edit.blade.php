@@ -21,9 +21,9 @@
                         @csrf
                         @method('PUT')
                         <label for="title" class="form-label">Title:</label>
-                        <input type="text" id="title" name="title" value="{{ $comic->title }}"">
+                        <input type="text" id="title" name="title" value="{{ $comic->title }}">
 
-                                                    <label for=" series" class="form-label">Series:</label>
+                        <label for=" series" class="form-label">Series:</label>
                         <input type="text" id="series" name="series" value="{{ $comic->series }}">
 
                         <label for="description" class="form-label">Description:</label>
